@@ -1,6 +1,7 @@
 import React from "react";
 import Account from "./Account";
 import AccountForm from "./AccountForm";
+import Demo from "./Demo";
 
 class AccountProfile extends React.Component {
   render() {
@@ -9,6 +10,9 @@ class AccountProfile extends React.Component {
         <h1>Account Profile</h1>
         <Account />
         <AccountForm />
+        <Demo>
+          <p>this is this.props.children</p>
+        </Demo>
       </div>
     );
   }

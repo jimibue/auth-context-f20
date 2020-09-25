@@ -1,20 +1,16 @@
 import React from "react";
-import { Form } from "semantic-ui-react";
+import { Form, Input, Select } from "semantic-ui-react";
 
 class AccountForm extends React.Component {
   // userName and membershipLevel, datejoined, but that need to be in form
   state = { username: "", membershipLevel: "" };
 
   // events bind this to the event, by making an arrow I bind this to the class
-  // handleChange = (e) => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value });
   };
+
+  // handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
   handleSubmitYO = (e) => {
     e.preventDefault();
@@ -24,18 +20,19 @@ class AccountForm extends React.Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmitYO}>
-        <Form.Input
-          label="New Username"
-          type="text"
-          name="username" // this is going to be e.target.name need match state
-          value={this.state.username}
+        <Form.Field
+          control={Input}
+          name="username"
+          label="Username"
+          placeholder="Username"
           onChange={this.handleChange}
         />
-        <Form.Select
-          label="Membership Level"
-          name="membershipLevel" // this is going to be e.target.name need match state
+        <Form.Field
+          name="membershipLevel"
+          control={Select}
+          label="Membership Label"
           options={membershipOptions}
-          value={this.state.membershipLevel}
+          placeholder="Membership Label"
           onChange={this.handleChange}
         />
         <Form.Button>add</Form.Button>
@@ -45,7 +42,8 @@ class AccountForm extends React.Component {
 }
 
 const membershipOptions = [
-  { text: "Bronze!", value: "Bronze" },
-  { text: "Gold!", value: "Gold" },
+  { key: "b", text: "Bronze", value: "Bronze" },
+  { key: "s", text: "Silver", value: "Silver" },
+  { key: "g", text: "Gold", value: "Gold" },
 ];
 export default AccountForm;
