@@ -9,7 +9,7 @@ class AccountProfile extends React.Component {
       <div>
         <h1>Account Profile</h1>
         <Account />
-        <AccountForm />
+        <AccountForm passMePlease="yoyoyo" />
         <Demo>
           <p>this is this.props.children</p>
         </Demo>
